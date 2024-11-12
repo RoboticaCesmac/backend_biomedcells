@@ -15,7 +15,9 @@ class Celula extends TRecord
     {
         parent::__construct($id);
         parent::addAttribute('nome');
-        parent::addAttribute('imagem');
+        parent::addAttribute('imagem_1');
+        parent::addAttribute('imagem_2');
+        parent::addAttribute('imagem_3');
         parent::addAttribute('descricao');
 
     }

@@ -43,6 +43,7 @@ class Lamina extends TRecord
         parent::addAttribute('rdw');
         parent::addAttribute('plaquetas');
 
+        parent::addAttribute('observacao');
 
 
     }

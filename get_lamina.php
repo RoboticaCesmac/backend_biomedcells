@@ -1,7 +1,8 @@
 <?php
 
-  
 require_once 'init.php';
+
+header('Content-Type: application/json');
 
 TTransaction::open('sample');
 
@@ -11,13 +12,16 @@ $laminas = $repository->load();
 
 $json_laminas = [];
 
-foreach($laminas as $lamina)
+foreach($laminas as $lamina) 
 {
-    $lamina_array = $lamina->toArray();
-    $lamina_json = json_encode($lamina_array);
-    $json_laminas[] = $lamina_json;
+    $json_laminas[] = $lamina->toArray(); 
 }
 
-var_dump($json_laminas);
-
 TTransaction::close();
+
+echo json_encode($json_laminas);
+
+// $lamina = new Lamina($_GET['id']);
+// $lamina_array = $lamina->toArray();
+// $lamina_json = json_encode($lamina_array);
+// echo $lamina_json;

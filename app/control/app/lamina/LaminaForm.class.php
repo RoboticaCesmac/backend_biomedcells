@@ -51,6 +51,8 @@ class LaminaForm extends TPage
         $rdw = new TEntry('rdw');
         $plaquetas = new TEntry('plaquetas');
 
+        $observacao = new TText('observacao');
+
         
         // $foto = new TImageCapture('foto');
         // $foto->setButtonLabel('Salvar');
@@ -61,9 +63,10 @@ class LaminaForm extends TPage
         $imagecropper->setAllowedExtensions( ['png', 'jpg', 'jpeg'] );
 
 
+        $observacao->setSize(350, 200);
+
         // add the fields
 
-        
         
         // $this->form->addFields( [ (new TLabel('Valores Relativos')) ], [ new TLabel('Valores Absolutos') ] )->layout = ['col-sm-10', 'col-sm-2'];
 
@@ -72,7 +75,7 @@ class LaminaForm extends TPage
         $this->form->addFields( [ new TLabel('Id') , $id ] )->layout = ['col-sm-2'];
         $this->form->addFields( [ new TLabel('Nome') , $nome ] )->layout = ['col-sm-2'];
 
-        $this->form->addFields( [ new TLabel('Imagem'), $imagecropper ] )->layout = ['col-sm-3'];
+        $this->form->addFields( [ new TLabel('Imagem'), $imagecropper ], [ new TLabel('Observações'), $observacao] )->layout = ['col-sm-3', 'col-sm-4'];
 
         
         // $label = new TLabel('Contagem', '#7D78B6', 16, 'bi');
@@ -207,13 +210,14 @@ class LaminaForm extends TPage
             TTransaction::open('sample'); // open a transaction
             
             
-            $this->form->validate(); // validate form data
-            $data = $this->form->getData(); // get form data as array
+            $this->form->validate(); 
+            $data = $this->form->getData(); 
 
 
-            $object = new Lamina;  // create an empty object
-            $object->fromArray( (array) $data); // load the object with data
+            $object = new Lamina;  
+            $object->fromArray( (array) $data); 
 
+            
 
             if(!empty($data->imagem))
             {
@@ -287,7 +291,6 @@ class LaminaForm extends TPage
                 $id = $param['id'];  // get the parameter $key
                 TTransaction::open('sample'); // open a transaction
                 $object = new Lamina($id); // instantiates the Active Record
-                
                 $this->form->setData($object); // fill the form
                 TTransaction::close(); // close the transaction
             }
