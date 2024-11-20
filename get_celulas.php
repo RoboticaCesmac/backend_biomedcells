@@ -13,11 +13,9 @@ $json_celulas = [];
 
 foreach($celulas as $celula)
 {
-    $celula_array = $celula->toArray();
-    $celula_json = json_encode($celula_array);
-    $json_celulas[] = $celula_json;
+    $json_celulas[] = $celula->toArray();
 }
 
-var_dump($json_celulas);
+echo json_encode($json_celulas);
 
 TTransaction::close();

@@ -55,9 +55,9 @@ class CelulaList extends TStandardList
         
         $btn = $this->form->addAction(_t('Find'), new TAction(array($this, 'onSearch')), 'fa:search');
         $btn->class = 'btn btn-sm btn-primary';
-        $btn2 = $this->form->addHeaderActionLink("Novo",  new TAction(array('CelulaForm', 'onEdit')), 'fa:plus ');
-        $btn2->class = 'btn btn-sm btn-primary';
-        $btn2->style = 'margin-right: 5px; border-radius: 4px;';
+        // $btn2 = $this->form->addHeaderActionLink("Novo",  new TAction(array('CelulaForm', 'onEdit')), 'fa:plus ');
+        // $btn2->class = 'btn btn-sm btn-primary';
+        // $btn2->style = 'margin-right: 5px; border-radius: 4px;';
 
 
         $this->datagrid = new BootstrapDatagridWrapper(new TDataGrid);
@@ -92,7 +92,7 @@ class CelulaList extends TStandardList
         $action_del->setLabel("Deletar");
         $action_del->setImage('far:trash-alt red');
         $action_del->setField('id');
-        $this->datagrid->addAction($action_del);
+        // $this->datagrid->addAction($action_del);
 
         // create the datagrid model
         $this->datagrid->createModel();

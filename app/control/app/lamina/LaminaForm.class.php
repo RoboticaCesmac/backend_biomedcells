@@ -171,17 +171,14 @@ class LaminaForm extends TPage
         $blastos_absoluto->setMask('99.999'); 
 
 
-        $hemacias->setNumericMask(2, ',', '.', true);
-        $hemoglobina->setNumericMask(2, ',', '.', true);
-        $hematocrito->setNumericMask(2, ',', '.', true);
-        $vcm->setNumericMask(2, ',', '.', true);
-        $hcm->setNumericMask(2, ',', '.', true);
-        $ch_hm->setNumericMask(2, ',', '.', true);
-        $rdw->setNumericMask(2, ',', '.', true);
-        $plaquetas->setNumericMask(2, ',', '.', true);
-
-
-
+        $hemacias->setMask('99,9');
+        $hemoglobina->setMask('99,9');
+        $hematocrito->setMask('99,9');
+        $vcm->setMask('99,9');
+        $hcm->setMask('99,9');
+        $ch_hm->setMask('99,9');
+        $rdw->setMask('99,9');
+        $plaquetas->setMask('999,9');
 
         if (!empty($id))
         {
@@ -205,13 +202,32 @@ class LaminaForm extends TPage
 
     public function onSave( $param )
     {
+        $this->form->validate(); 
+        $data = $this->form->getData(); 
+
+
+        foreach($data as $key => $value)
+        {
+            if($key != 'id')
+            {
+                if((is_null($value) OR ($value == '')))
+                {
+                    $this->form->setData($data);
+                    return TToast::show('warning', 'Todos os campos são obrigatórios !', 'top center', 'fas:exclamation-triangle' );
+                }
+            }
+            
+        }
+
+
         try
         {
+             
+
+
             TTransaction::open('sample'); // open a transaction
             
             
-            $this->form->validate(); 
-            $data = $this->form->getData(); 
 
 
             $object = new Lamina;  
@@ -310,7 +326,6 @@ class LaminaForm extends TPage
     {
         $path = 'tmp/' . $param['foto_up'];
         
-        // var_dump($path);
         $obj = new stdClass;
         $obj->foto = $path;
         

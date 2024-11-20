@@ -83,6 +83,8 @@ class CelulaForm extends TPage
             if(!empty($data->imagem_1))
             {
 
+                
+                
                 $path = $this->saveImages($data->imagem_1, $data->nome . '1');
                 $data->imagem_1 = $path;
                 $object->imagem_1 = $path;
@@ -140,7 +142,6 @@ class CelulaForm extends TPage
                 $id = $param['id'];  
                 TTransaction::open('sample'); 
                 $object = new Celula($id); 
-                var_dump($object);
                 $this->form->setData($object); 
                 TTransaction::close(); 
             }
