@@ -254,7 +254,7 @@ class LaminaForm extends TPage
                 $stringSemEspacos = str_replace(' ', '', strtolower($data->nome));
 
                 $source_file   = 'tmp/' . $arquivo;
-                $target_path   = 'files/images/' . $stringSemEspacos;
+                $target_path   = 'files/images/laminas' ;
                 $target_file   =  $target_path . '/'  . $stringSemEspacos . '.' . $path_info['extension'];
                 
                 
