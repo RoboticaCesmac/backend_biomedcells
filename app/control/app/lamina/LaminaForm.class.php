@@ -87,13 +87,13 @@ class LaminaForm extends TPage
 
         $row = $this->form->addFields( [ new TLabel('Neutrofilos') ,$neutrofilo_relativo ] , [ new TLabel('') ,$neutrofilo_absoluto], [], 
         [ new TLabel('Monocitos') ,$monocito_relativo ] , [ new TLabel('') ,$monocito_absoluto]);
-        $row->layout = ['col-sm-1', 'col-sm-1', 'col-sm-1', 'col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2', 'col-sm-2', 'col-sm-2', 'col-sm-2'];
         $row->style = 'margin-top: 15px;';
 
     
         $row = $this->form->addFields( [ new TLabel('Eosilofilos') ,$eosilofilo_relativo ] , [ new TLabel('') ,$eosilofilo_absoluto], [], 
         [ new TLabel('Basofilos') ,$basofilo_relativo ] , [ new TLabel('') ,$basofilo_absoluto]);
-        $row->layout = ['col-sm-1', 'col-sm-1', 'col-sm-1', 'col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2', 'col-sm-2', 'col-sm-2', 'col-sm-2'];
         $row->style = 'margin-top: 15px;';
 
         
@@ -101,13 +101,13 @@ class LaminaForm extends TPage
         $row = $this->form->addFields( [ new TLabel('Linfocitos T') ,$linfocito_t_relativo ] , [ new TLabel('') ,$linfocito_t_absoluto],  [], 
         [ new TLabel('Linfocitos A') ,$linfocito_a_relativo ] , [ new TLabel('') ,$linfocito_a_absoluto]);
 
-        $row->layout = ['col-sm-1', 'col-sm-1', 'col-sm-1', 'col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2', 'col-sm-2', 'col-sm-2', 'col-sm-2'];
         $row->style = 'margin-top: 15px;';
         
        
 
         $row = $this->form->addFields( [ new TLabel('Blastos') ,$blastos_relativo ] , [ new TLabel('') ,$blastos_absoluto]);
-        $row->layout = ['col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2'];
         $row->style = 'margin-top: 15px;';
 
 
@@ -119,16 +119,16 @@ class LaminaForm extends TPage
         $this->form->appendPage('Eritograma');
 
         $row = $this->form->addFields( [ new TLabel('Hemácias'), $hemacias], [ new TLabel('Hemoglobina'), $hemoglobina]);
-        $row->layout = ['col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2'];
 
         $row = $this->form->addFields( [ new TLabel('Hematocrito'), $hematocrito], [ new TLabel('plaquetas')  , $plaquetas]);
-        $row->layout = ['col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2'];
         
         $row = $this->form->addFields( [ new TLabel('V.C.M.'), $vcm], [ new TLabel('H.C.M.'), $hcm]);
-        $row->layout = ['col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2'];
 
         $row = $this->form->addFields( [ new TLabel('C.H.C.M.'), $ch_hm], [ new TLabel('R.D.W.') , $rdw]);
-        $row->layout = ['col-sm-1', 'col-sm-1'];
+        $row->layout = ['col-sm-2', 'col-sm-2'];
       
  
 

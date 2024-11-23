@@ -215,7 +215,7 @@ class LoginForm extends TPage
                 }
                 else
                 {
-                    AdiantiCoreApplication::gotoPage('EmptyPage'); // reload
+                    AdiantiCoreApplication::gotoPage('LaminaList'); // reload
                     TSession::setValue('frontpage', 'EmptyPage');
                 }
             }
