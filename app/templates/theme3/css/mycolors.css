@@ -1,0 +1,15 @@
+:root {
+    --bg-color1: #60cc64;
+    --bg-color2: #5eb161;
+    --bg-color3: #498c4c; 
+    --bg-color4: #60cc64e0; 
+    --border-color1: rgba(140, 130, 115, 0.13);
+    --text-color1: rgb(200, 195, 188);
+    --input-color1: rgb(53, 57, 59);
+    --primary-color: rgb(76, 0, 153);
+    --secondary-color: #3b0077;
+    --terciary-color: #34154d;
+    --white-icon-color: rgb(200, 195, 188);
+    --icon-color1: rgb(149, 74, 240);
+    --disable-content: #26292b;
+}

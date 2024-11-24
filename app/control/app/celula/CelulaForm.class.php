@@ -19,6 +19,7 @@ class CelulaForm extends TPage
         $id              = new TEntry('id');
         $nome            = new TEntry('nome');
         $descricao       = new TText('descricao');
+        $descricao->id = 'form_descricao';
 
         $imagecropper1 = new TImageCropper('imagem_1');
         $imagecropper1->setSize(250, 200);
@@ -36,12 +37,25 @@ class CelulaForm extends TPage
         $imagecropper3->setAllowedExtensions( ['png', 'jpg', 'jpeg'] );
 
         // add the fields
-        $this->form->addFields( [ new TLabel('Id') ,$id ] )->layout = ['col-sm-1'];
-        $this->form->addFields( [ new TLabel('Nome') , $nome ] )->layout = ['col-sm-2'];
-        $this->form->addFields( [ new TLabel('Descricao') , $descricao ] )->layout = ['col-sm-4'];
-        $this->form->addFields( [ new TLabel('Imagem 01') , $imagecropper1])->layout = ['col-sm-4'];
-        $this->form->addFields( [ new TLabel('Imagem 02') , $imagecropper2])->layout = ['col-sm-4'];
-        $this->form->addFields( [ new TLabel('Imagem 03') , $imagecropper3])->layout = ['col-sm-4'];
+        // $row = $this->form->addFields( [ new TLabel('Id') ,$id ] )->layout = ['col-sm-1'];
+
+        $row = $this->form->addFields( [ new TLabel('ID'), $id], [ new TLabel('Nome'), $nome]);
+        $row->layout = ['col-sm-2', 'col-sm-2'];
+
+        $row = $this->form->addFields( [ new TLabel('Descrição'), $descricao], [ new TLabel('Imagem 01'), $imagecropper1]);
+        $row->layout = ['col-sm-4', 'col-sm-4'];
+        $row->style = "margin-top: 20px";
+
+
+        $row = $this->form->addFields( [ new TLabel('Imagem 02'), $imagecropper2], [ new TLabel('Imagem 03'), $imagecropper3]);
+        $row->layout = ['col-sm-4', 'col-sm-4'];
+        $row->style = "margin-top: 20px";
+
+        // $row = $this->form->addFields( [ new TLabel('Nome') , $nome ] )->layout = ['col-sm-2'];
+        // $row = $this->form->addFields( [ new TLabel('Descricao') , $descricao ] )->layout = ['col-sm-4'];
+        // $row = $this->form->addFields( [ new TLabel('Imagem 01') , $imagecropper1])->layout = ['col-sm-4'];
+        // $row = $this->form->addFields( [ new TLabel('Imagem 02') , $imagecropper2])->layout = ['col-sm-4'];
+        // $row = $this->form->addFields( [ new TLabel('Imagem 03') , $imagecropper3])->layout = ['col-sm-4'];
 
 
         // if (!empty($id))

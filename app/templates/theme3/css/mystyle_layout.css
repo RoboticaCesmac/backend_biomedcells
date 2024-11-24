@@ -1,0 +1,33 @@
+
+body > .wrapper #adianti_content > #adianti_div_content > div > div > div > .card.panel #form_lamina label {
+    font-size: 15px !important;
+}
+
+body > div > header > div.logo {
+    background-color: var(--bg-color3) !important;
+}
+
+body > div > header > nav {
+    background-color: var(--bg-color4) !important;
+}
+
+body > div > header > nav > div > ul > li.dropdown.user.user-menu.show > ul > li.user-header {
+    background-color: var(--bg-color2);
+}
+.btn-primary {
+    background-color: var(--bg-color2) !important;
+    border: none;
+}
+
+.page-item.active .page-link  {
+    background-color: var(--bg-color2) !important;
+    border: none;
+}
+
+#form_Celula > div.card-body.panel-body > div > div > div:nth-child(2) > div:nth-child(1) {
+    height: 224px;
+}
+
+#form_descricao {
+    height: 200px !important;
+}

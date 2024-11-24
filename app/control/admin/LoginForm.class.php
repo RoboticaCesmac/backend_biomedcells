@@ -210,8 +210,8 @@ class LoginForm extends TPage
                 }
                 else if ($frontpage instanceof SystemProgram and $frontpage->controller)
                 {
-                    AdiantiCoreApplication::gotoPage($frontpage->controller); // reload
-                    TSession::setValue('frontpage', $frontpage->controller);
+                    AdiantiCoreApplication::gotoPage('LaminaList'); // reload
+                    TSession::setValue('frontpage', 'EmptyPage');
                 }
                 else
                 {

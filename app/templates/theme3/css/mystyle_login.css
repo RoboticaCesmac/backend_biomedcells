@@ -1,0 +1,23 @@
+body > nav.main-header {
+    background-color: var(--bg-color1) !important;
+}
+
+body > nav.main-header > span {
+    color: #fff !important;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#login-wrapper > div > div {
+    background-color: var(--bg-color1) !important;
+}
+
+#tbutton_btn_entrar {
+    background-color: var(--bg-color2) !important;
+    border: none;
+}
+
+span.login-avatar {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
