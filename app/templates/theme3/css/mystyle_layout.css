@@ -14,9 +14,15 @@ body > div > header > nav {
 body > div > header > nav > div > ul > li.dropdown.user.user-menu.show > ul > li.user-header {
     background-color: var(--bg-color2);
 }
+
 .btn-primary {
     background-color: var(--bg-color2) !important;
     border: none;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--bg-color4) !important;
+    border-color: none !important;
 }
 
 .page-item.active .page-link  {
