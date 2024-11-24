@@ -33,13 +33,13 @@ class LaminaForm extends TPage
         $linfocito_a_relativo = new TEntry('linfocito_a_relativo');
         $blastos_relativo     = new TEntry('blastos_relativo');
 
-        $neutrofilo_absoluto  = new TEntry('neutrofilo_absoluto');
-        $monocito_absoluto    = new TEntry('monocito_absoluto');
-        $eosilofilo_absoluto  = new TEntry('eosilofilo_absoluto');
-        $basofilo_absoluto    = new TEntry('basofilo_absoluto');
-        $linfocito_t_absoluto = new TEntry('linfocito_t_absoluto');
-        $linfocito_a_absoluto = new TEntry('linfocito_a_absoluto');
-        $blastos_absoluto     = new TEntry('blastos_absoluto');
+        $neutrofilo_absoluto  = new TNumeric('neutrofilo_absoluto', 2, ',', '.');
+        $monocito_absoluto    = new TNumeric('monocito_absoluto', 2, ',', '.');
+        $eosilofilo_absoluto  = new TNumeric('eosilofilo_absoluto', 2, ',', '.');
+        $basofilo_absoluto    = new TNumeric('basofilo_absoluto', 2, ',', '.');
+        $linfocito_t_absoluto = new TNumeric('linfocito_t_absoluto', 2, ',', '.');
+        $linfocito_a_absoluto = new TNumeric('linfocito_a_absoluto', 2, ',', '.');
+        $blastos_absoluto     = new TNumeric('blastos_absoluto', 2, ',', '.');
 
 
         $hemacias = new TEntry('hemacias');
@@ -153,6 +153,7 @@ class LaminaForm extends TPage
 
 
 
+
         $neutrofilo_relativo->setMask('999');  
         $monocito_relativo->setMask('999');    
         $eosilofilo_relativo->setMask('999');  
@@ -162,13 +163,13 @@ class LaminaForm extends TPage
         $blastos_relativo->setMask('999'); 
 
 
-        $neutrofilo_absoluto->setMask('99.999');  
-        $monocito_absoluto->setMask('99.999');    
-        $eosilofilo_absoluto->setMask('99.999');  
-        $basofilo_absoluto->setMask('99.999');    
-        $linfocito_t_absoluto->setMask('99.999'); 
-        $linfocito_a_absoluto->setMask('99.999'); 
-        $blastos_absoluto->setMask('99.999'); 
+        // $neutrofilo_absoluto->setMask('99.999');  
+        // $monocito_absoluto->setMask('99.999');    
+        // $eosilofilo_absoluto->setMask('99.999');  
+        // $basofilo_absoluto->setMask('99.999');    
+        // $linfocito_t_absoluto->setMask('99.999'); 
+        // $linfocito_a_absoluto->setMask('99.999'); 
+        // $blastos_absoluto->setMask('99.999'); 
 
 
         $hemacias->setMask('99,9');
@@ -209,30 +210,39 @@ class LaminaForm extends TPage
         {
             if($key != 'id')
             {
+                
                 if((is_null($value) OR ($value == '')))
                 {
+                    if($data->imagem != '')
+                    {
+                        $data->imagem = 'tmp/' . $data->imagem;
+                    }
+
                     $this->form->setData($data);
                     return TToast::show('warning', 'Todos os campos são obrigatórios !', 'top center', 'fas:exclamation-triangle' );
+                }
+
+            }
+
+            if (!in_array($key, ['nome', 'observacao', 'id', 'imagem']))
+            {
+                if($value > 100000)
+                {
+                    $data->imagem = 'tmp/' . $data->imagem;
+                    $this->form->setData($data);
+                    return TToast::show('warning', 'Alerta: Algum valor absoluto está inconsistente', 'top center', 'fas:exclamation-triangle' );
                 }
             }
             
         }
 
-
         try
         {
-             
-
 
             TTransaction::open('sample'); // open a transaction
-            
-            
-
 
             $object = new Lamina;  
             $object->fromArray( (array) $data); 
-
-            
 
             if(!empty($data->imagem))
             {
