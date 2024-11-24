@@ -163,6 +163,8 @@ class CelulaForm extends TPage
 
         $arquivo = '';
 
+        $uniq = uniqid();
+
         if(strpos($img_path, 'tmp/') !== FALSE)
         {
             $arquivo = str_replace('tmp/', '', $img_path);
@@ -176,7 +178,7 @@ class CelulaForm extends TPage
 
         $source_file   = 'tmp/' . $arquivo;
         $target_path   = 'files/images/celulas';
-        $target_file   =  $target_path . '/'  . $stringSemEspacos . '.' . $path_info['extension'];
+        $target_file   =  $target_path . '/'  . $stringSemEspacos . '_' . $uniq . '.' . $path_info['extension'];
         
         
         if (file_exists($source_file))
@@ -188,11 +190,16 @@ class CelulaForm extends TPage
                     throw new Exception(_t('Permission denied'). ': '. $target_path);
                 }
             }
-            
+
             rename($source_file, $target_file);
+            return $target_file;
+            
+        }
+        else
+        {
+            return $img_path;
         }
 
-        return $target_file;
     }
 
 }

@@ -205,7 +205,6 @@ class LaminaForm extends TPage
         $this->form->validate(); 
         $data = $this->form->getData(); 
 
-
         foreach($data as $key => $value)
         {
             if($key != 'id')
@@ -241,6 +240,7 @@ class LaminaForm extends TPage
                 $path_info = pathinfo($data->imagem);
 
                 $arquivo = '';
+                $uniq = uniqid();
 
                 if(strpos($data->imagem, 'tmp/') !== FALSE)
                 {
@@ -255,7 +255,7 @@ class LaminaForm extends TPage
 
                 $source_file   = 'tmp/' . $arquivo;
                 $target_path   = 'files/images/laminas' ;
-                $target_file   =  $target_path . '/'  . $stringSemEspacos . '.' . $path_info['extension'];
+                $target_file   =  $target_path . '/'  . $stringSemEspacos . '_' . $uniq .  '.' . $path_info['extension'];
                 
                 
                 if (file_exists($source_file))
