@@ -213,23 +213,15 @@ class LaminaForm extends TPage
                 
                 if((is_null($value) OR ($value == '')))
                 {
-                    if($data->imagem != '')
-                    {
-                        $data->imagem = 'tmp/' . $data->imagem;
-                    }
-
-                    $this->form->setData($data);
                     return TToast::show('warning', 'Todos os campos são obrigatórios !', 'top center', 'fas:exclamation-triangle' );
                 }
 
             }
 
-            if (!in_array($key, ['nome', 'observacao', 'id', 'imagem']))
+            if(in_array($key, ['neutrofilo_absoluto', 'monocito_absoluto', 'eosilofilo_absoluto', 'basofilo_absoluto', 'linfocito_t_absoluto', 'linfocito_a_absoluto', 'blastos_absoluto']))
             {
                 if($value > 100000)
                 {
-                    $data->imagem = 'tmp/' . $data->imagem;
-                    $this->form->setData($data);
                     return TToast::show('warning', 'Alerta: Algum valor absoluto está inconsistente', 'top center', 'fas:exclamation-triangle' );
                 }
             }
