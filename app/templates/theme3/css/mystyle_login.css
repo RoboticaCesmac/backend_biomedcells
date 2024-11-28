@@ -21,3 +21,11 @@ span.login-avatar {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
+
+#form_login > div.card-body.panel-body > div > div > div:nth-child(5) > div {
+    display: none !important;
+}
+
+#form_login > div.card-body.panel-body > div > div > div:nth-child(5) {
+    display: none !important;
+}

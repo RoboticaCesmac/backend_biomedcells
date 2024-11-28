@@ -1,4 +1,3 @@
-
 body > .wrapper #adianti_content > #adianti_div_content > div > div > div > .card.panel #form_lamina label {
     font-size: 15px !important;
 }
@@ -36,4 +35,16 @@ body > div > header > nav > div > ul > li.dropdown.user.user-menu.show > ul > li
 
 #form_descricao {
     height: 200px !important;
+}
+
+#support {
+    display: none !important;
+}
+
+#search-box {
+    display: none !important;
+}
+
+#envelope_notifications {
+    display: none !important;
 }

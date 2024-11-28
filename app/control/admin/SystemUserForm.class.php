@@ -76,11 +76,7 @@ class SystemUserForm extends TPage
         
         $this->form->addFields( [new TLabel('ID')], [$id],  [new TLabel(_t('Name'))], [$name] );
         $this->form->addFields( [new TLabel(_t('Login'))], [$login],  [new TLabel(_t('Email'))], [$email] );
-        $this->form->addFields( [new TLabel(_t('Address'))], [$address],  [new TLabel(_t('Phone'))], [$phone] );
-        $this->form->addFields( [new TLabel(_t('Function'))], [$function_name],  [new TLabel(_t('About'))], [$about] );
-        $this->form->addFields( [new TLabel(_t('Main unit'))], [$unit_id],  [new TLabel(_t('Front page'))], [$frontpage_id] );
         $this->form->addFields( [new TLabel(_t('Password'))], [$password],  [new TLabel(_t('Password confirmation'))], [$repassword] );
-        $this->form->addFields( [new TLabel(_t('Custom code'))], [$custom_code] );
         
         $subform = new BootstrapFormBuilder;
         $subform->setFieldSizes('100%');
@@ -99,46 +95,46 @@ class SystemUserForm extends TPage
         
         $subform->addFields( [$this->unit_list] );
         
-        $subform->appendPage( _t('Roles') );
-        $this->role_list = new TDBCheckList('role_list', 'permission', 'SystemRole', 'id', 'name');
-        $this->role_list->makeScrollable();
-        $this->role_list->setHeight(210);
+        // $subform->appendPage( _t('Roles') );
+        // $this->role_list = new TDBCheckList('role_list', 'permission', 'SystemRole', 'id', 'name');
+        // $this->role_list->makeScrollable();
+        // $this->role_list->setHeight(210);
         
-        $subform->addFields( [$this->role_list] );
+        // $subform->addFields( [$this->role_list] );
         
-        $subform->appendPage( _t('Programs') );
-        $this->program_list = new TCheckList('program_list');
-        $this->program_list->setIdColumn('id');
-        $this->program_list->addColumn('id',    'ID',    'center',  '10%');
-        $col_name    = $this->program_list->addColumn('name', _t('Name'),    'left',   '50%');
-        $col_program = $this->program_list->addColumn('controller', _t('Menu path'),    'left',   '40%');
-        $col_program->enableAutoHide(500);
-        $this->program_list->setHeight(150);
-        $this->program_list->makeScrollable();
+        // $subform->appendPage( _t('Programs') );
+        // $this->program_list = new TCheckList('program_list');
+        // $this->program_list->setIdColumn('id');
+        // $this->program_list->addColumn('id',    'ID',    'center',  '10%');
+        // $col_name    = $this->program_list->addColumn('name', _t('Name'),    'left',   '50%');
+        // $col_program = $this->program_list->addColumn('controller', _t('Menu path'),    'left',   '40%');
+        // $col_program->enableAutoHide(500);
+        // $this->program_list->setHeight(150);
+        // $this->program_list->makeScrollable();
         
-        $subform->addFields( [$this->program_list] );
+        // $subform->addFields( [$this->program_list] );
         
         $this->form->addContent([$subform]);
         
-        $col_name->enableSearch();
-        $search_name = $col_name->getInputSearch();
-        $search_name->placeholder = _t('Search');
-        $search_name->style = 'width:50%;margin-left: 4px; border-radius: 4px';
+        // $col_name->enableSearch();
+        // $search_name = $col_name->getInputSearch();
+        // $search_name->placeholder = _t('Search');
+        // $search_name->style = 'width:50%;margin-left: 4px; border-radius: 4px';
         
         
-        $col_program->setTransformer( function($value, $object, $row) {
-            $menuparser = new TMenuParser('menu.xml');
-            $paths = $menuparser->getPath($value);
+        // $col_program->setTransformer( function($value, $object, $row) {
+        //     $menuparser = new TMenuParser('menu.xml');
+        //     $paths = $menuparser->getPath($value);
             
-            if ($paths)
-            {
-                return implode(' &raquo; ', $paths);
-            }
-        });
+        //     if ($paths)
+        //     {
+        //         return implode(' &raquo; ', $paths);
+        //     }
+        // });
         
-        TTransaction::open('permission');
-        $this->program_list->addItems( SystemProgram::get() );
-        TTransaction::close();
+        // TTransaction::open('permission');
+        // $this->program_list->addItems( SystemProgram::get() );
+        // TTransaction::close();
         
         $this->form->addHeaderActionLink(_t('Close'), new TAction([$this, 'onClose']), 'fa:times red');
         
@@ -165,6 +161,16 @@ class SystemUserForm extends TPage
             
             $data = $this->form->getData();
             $this->form->setData($data);
+
+            if(isset($data->system_unit_id))
+            {
+                $data->system_unit_id = 1;
+
+            }
+            else
+            {
+                $data->system_unit_id = 1;
+            }
             
             $object = new SystemUser;
             $object->fromArray( (array) $data );
