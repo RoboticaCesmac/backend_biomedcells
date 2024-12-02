@@ -11,6 +11,10 @@
         <action>CelulaList</action>
         <icon>fas:book-medical fa-fw</icon>
       </menuitem>
+      <menuitem label="Sobre">
+        <action>SobreForm#method=onEdit</action>
+        <icon>fas:pencil-alt fa-fw</icon>
+      </menuitem>
     </menu>
   </menuitem>
   <menuitem label="_t{Administration}">
