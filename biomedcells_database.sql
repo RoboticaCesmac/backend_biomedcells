@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 29/11/2024 às 01:55
+-- Tempo de geração: 04/12/2024 às 19:01
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.0.30
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `celula` (
 --
 
 INSERT INTO `celula` (`id`, `nome`, `imagem_1`, `imagem_2`, `imagem_3`, `descricao`) VALUES
-(1, 'Neutrofilos', 'files/images/celulas/neutrofilos1_674283389c544.jpg', 'files/images/celulas/neutrofilos2_67428238012d6.jpg', 'files/images/celulas/neutrofilos3_67452f0648440.jpg', 'sem descrição'),
+(1, 'Neutrofilos', 'files/images/celulas/neutrofilos1_674283389c544.jpg', 'files/images/celulas/neutrofilos2_67428238012d6.jpg', NULL, 'sem descrição'),
 (2, 'Monocitos', 'files/images/celulas/monocitos1_6742830c2c663.jpg', 'files/images/celulas/monocitos2_674282e5d6593.jpg', NULL, 'Monócitos são células do sangue que fagocitam microorganismos e detritos, e se transformam em macrófagos ou células dendríticas nos tecidos.'),
 (3, 'Eosinofilos', 'files/images/celulas/eosinofilo1.jpg', 'files/images/celulas/eosinofilo2.jpg', NULL, 'Os eosinófilos são células do sangue envolvidas na defesa contra parasitas e reações alérgicas. Possuem granulações em seu citoplasma e um núcleo bilobado.'),
 (4, 'Basofilos', 'files/images/celulas/basofilo1.jpg', 'files/images/celulas/basofilo2.jpg', NULL, 'Os basófilos são células do sangue envolvidas em respostas alérgicas e inflamatórias. Possuem granulações com histamina e heparina e um núcleo bilobado.'),
@@ -100,6 +100,26 @@ INSERT INTO `lamina` (`id`, `nome`, `neutrofilo_relativo`, `monocito_relativo`, 
 (5, 'lamina05', 231, 65, 12, 789, 4, 789, 679, 'files/images/laminas/lamina05_67428201c9ffa.png', 11, 80, 12, 66, 54, 90, 79, 89, 67, 67, 78, 78, 7, 78, 678, 'ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, '),
 (6, 'lamina06', 10, 10, 10, 12, 10, 8, 10, 'files/images/laminas/lamina06_6742a317a52d1.png', 10, 53, 11, 23, 20, 35, 10, 12, 35, 78, 98, 65, 56, 45, 467, 'observação da lâmina 06, teste de edição'),
 (7, 'lamina07', 123, 123, 123, 123, 123, 123, 123, 'files/images/laminas/dwada_67452d1b7ddcd.png', 1231, 1, 1231, 1, 1231, 1231, 1, 12, 12, 12, 12, 12, 12, 12, 123, 'lamina07');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `sobre`
+--
+
+DROP TABLE IF EXISTS `sobre`;
+CREATE TABLE IF NOT EXISTS `sobre` (
+  `id` int NOT NULL,
+  `text` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `sobre`
+--
+
+INSERT INTO `sobre` (`id`, `text`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
