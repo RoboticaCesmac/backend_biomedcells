@@ -35,3 +35,7 @@ define('LANG', $ini['general']['language']);
 session_name('PHPSESSID_'.$ini['general']['application']);
 
 setlocale(LC_ALL, 'C');
+
+// Carregar variáveis de ambiente do .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
