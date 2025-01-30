@@ -8,11 +8,16 @@ commands = [
 [phases.build]
 # Comandos executados durante a fase de build
 commands = [
+    "echo 'Construindo o projeto...'",
+]
+
+[start]
+# Ajuste das permissões
+commands = [
     "echo 'Ajustando permissões...'",
     "chown -R nobody:nobody /app/app/database",
     "chmod -R 750 /app/app/database",
 ]
-
 
 # Manualmente é isso que é feito:
 # Verifica se o grupo nobody existe "cat /etc/group | grep nobody" (não imprime nada se não existir)
