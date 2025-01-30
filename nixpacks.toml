@@ -12,7 +12,3 @@ commands = [
     "chown -R nobody:nobody /app/app/database",
     "chmod -R 750 /app/app/database",
 ]
-
-[start]
-# Comando de inicialização do container
-cmd = "php-fpm"
