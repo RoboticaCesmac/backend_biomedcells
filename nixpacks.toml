@@ -1,0 +1,18 @@
+[phases.setup]
+# Comandos executados durante a fase de setup (instalação de dependências, etc.)
+commands = [
+    "echo 'Configurando o ambiente...'",
+    "if ! grep -q '^nobody:' /etc/group; then addgroup nobody; fi",
+]
+
+[phases.build]
+# Comandos executados durante a fase de build
+commands = [
+    "echo 'Ajustando permissões...'",
+    "chown -R nobody:nobody /app/app/database",
+    "chmod -R 750 /app/app/database",
+]
+
+[start]
+# Comando de inicialização do container
+cmd = "php-fpm"
