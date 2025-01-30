@@ -9,8 +9,8 @@ commands = [
 # Comandos executados durante a fase de build
 commands = [
     "echo 'Ajustando permissões...'",
-    "chown -R nobody:nobody /app/database",
-    "chmod -R 750 /app/database",
+    "chown -R nobody:nobody /app/app/database",
+    "chmod -R 750 /app/app/database",
 ]
 
 
