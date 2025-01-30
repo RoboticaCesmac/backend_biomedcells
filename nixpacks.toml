@@ -9,6 +9,13 @@ commands = [
 # Comandos executados durante a fase de build
 commands = [
     "echo 'Ajustando permissões...'",
-    "chown -R nobody:nobody /app/app/database",
-    "chmod -R 750 /app/app/database",
+    "chown -R nobody:nobody /app/database",
+    "chmod -R 750 /app/database",
 ]
+
+
+# Manualmente é isso que é feito:
+# Verifica se o grupo nobody existe "cat /etc/group | grep nobody" (não imprime nada se não existir)
+# Cria o grupo nobody se ele não existir "addgroup nobody"
+# Altera o propietário do diretório database "sudo chown -R nobody:nobody /app/app/database"
+# Aplica permissões mais restritas "chmod -R 750 /app/app/database"
