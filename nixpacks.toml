@@ -5,8 +5,11 @@ commands = [
 ]
 
 # Define o script start.sh para ajustar permissões do banco
-[start]
-cmd = "sh /app/start.sh"
+[postStart]
+commands = [
+    "echo 'Executando postStart...' >> /app/postStart.log",
+    "sh /app/start.sh >> /app/postStart.log 2>&1",  # Executa o script e redireciona a saída para o log
+]
 
 # Manualmente é isso que é feito:
 # Entra no container com "sudo docker exec -it id-container sh" onde o id-container pode encontrado com o comando "sudo docker ps"
