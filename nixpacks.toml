@@ -2,7 +2,7 @@
 commands = [
     "echo 'Configurando o ambiente...'",
     "if ! grep -q '^nobody:' /etc/group; then addgroup nobody; fi",
-    "chmod +x /app/start.sh",  # Adiciona permissão de execução
+    "chmod +x start.sh",  # Adiciona permissão de execução
 ]
 
 [phases.build]
