@@ -1,7 +1,8 @@
 [phases.build]
 commands = [
-    "echo 'Construindo o projeto...'",
-    "chmod +x /app/start.sh",  # Adiciona permissão de execução
+    "echo 'Copiando php-fpm.conf...'",
+    "cp /nix/store/*-php-*/etc/php-fpm.conf.default /app/php-fpm.conf",
+    "chmod +x /app/start.sh"
 ]
 
 # Define o script start.sh para ajustar permissões do banco
