@@ -7,8 +7,7 @@ commands = [
 [phases.build]
 commands = [
     "echo 'Construindo o projeto...'",
-    "chmod +x /app/start.sh",  # Adiciona permissão de execução
-    "chown nobody:nobody /app/start.sh",  # Define o proprietário do script
+    "chmod 777 /app/start.sh",  # Adiciona permissão de execução
     "echo 'Permissões da página...'",
     "ls -l",
     "echo 'Processos...'",
