@@ -8,6 +8,7 @@ commands = [
 commands = [
     "echo 'Construindo o projeto...'",
     "chmod +x /app/start.sh",  # Adiciona permissão de execução
+    "chown nobody:nobody /app/start.sh",  # Define o proprietário do script
     "echo 'Permissões da página...'",
     "ls -l",
     "echo 'Processos...'",
