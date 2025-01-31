@@ -16,7 +16,7 @@ commands = [
 ]
 
 # Define o script como comando de inicialização
-[start]
+[postStart]
 cmd = "sh /app/start.sh"
 
 # Manualmente é isso que é feito:
