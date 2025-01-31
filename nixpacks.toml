@@ -5,7 +5,7 @@ commands = [
 ]
 
 # Define o script start.sh para ajustar permissões do banco
-[postStart]
+[start]
 commands = [
     "echo 'Executando postStart...' >> /app/postStart.log",
     "sh /app/start.sh >> /app/postStart.log 2>&1",  # Executa o script e redireciona a saída para o log
