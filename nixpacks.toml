@@ -16,9 +16,6 @@ commands = [
     "ps aux"
 ]
 
-[start]
-cmd = "tail -f /dev/null"
-
 # Manualmente é isso que é feito:
 # Entra no container com "sudo docker exec -it id-container sh" onde o id-container pode encontrado com o comando "sudo docker ps"
 # "ps aux" dentro do container para saber qual o usuário dono do processo php-fpm.
