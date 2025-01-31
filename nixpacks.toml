@@ -5,7 +5,7 @@ commands = [
 ]
 
 # Define o script start.sh para ajustar permissões do banco
-[postStart]
+[start]
 cmd = "sh /app/start.sh"
 
 # Manualmente é isso que é feito:
