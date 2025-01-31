@@ -1,20 +1,10 @@
-[phases.setup]
-commands = [
-    "echo 'Configurando o ambiente...'",
-    "if ! grep -q '^nobody:' /etc/group; then addgroup nobody; fi",
-]
-
 [phases.build]
 commands = [
     "echo 'Construindo o projeto...'",
     "chmod +x /app/start.sh",  # Adiciona permissão de execução
-    "echo 'Permissões da página...'",
-    "ls -l",
-    "echo 'Processos...'",
-    "ps aux",
 ]
 
-# Define o script como comando de inicialização
+# Define o script start.sh para ajustar permissões do banco
 [postStart]
 cmd = "sh /app/start.sh"
 
