@@ -18,3 +18,5 @@ chmod -R 750 /app/app/database
 echo "Verificando permissões de /app/app/database..." >> /app/start.log
 ls -ld /app/app/database >> /app/start.log
 ls -l /app/app/database >> /app/start.log
+
+php-fpm
