@@ -2,22 +2,22 @@
 commands = [
     "echo 'Configurando o ambiente...'",
     "if ! grep -q '^nobody:' /etc/group; then addgroup nobody; fi",
+    "echo 'Ajustando permissões de /app/app/database...'",
+    "chown -R nobody:nobody /app/app/database",
+    "chmod -R 750 /app/app/database"
 ]
 
 [phases.build]
 commands = [
     "echo 'Construindo o projeto...'",
-    "chmod +x /app/start.sh",  # Adiciona permissão de execução
-    "chown nobody:nobody /app/start.sh",  # Define o proprietário do script
     "echo 'Permissões da página...'",
-    "ls -l",
-    "echo 'Processos...'",
-    "ps aux",
+    "ls -l /app/app/database",
+    "echo 'Processos...' ",
+    "ps aux"
 ]
 
-# Define o script como comando de inicialização
 [start]
-cmd = "sh /app/start.sh"
+cmd = "tail -f /dev/null"
 
 # Manualmente é isso que é feito:
 # Entra no container com "sudo docker exec -it id-container sh" onde o id-container pode encontrado com o comando "sudo docker ps"
