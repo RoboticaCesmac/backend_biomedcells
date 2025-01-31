@@ -6,4 +6,5 @@ chown -R nobody:nobody /app/app/database
 chmod -R 750 /app/app/database
 
 # Passa o controle para o comando principal definido pelo Nixpacks
-exec "$@"
+echo "Iniciando o serviço principal..."
+php-fpm -F
