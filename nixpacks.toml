@@ -10,7 +10,9 @@ commands = [
     "chmod +x /app/start.sh",  # Adiciona permissão de execução
     "chown nobody:nobody /app/start.sh",  # Define o proprietário do script
     "echo 'Permissões da página...'",
-    "ls -l"
+    "ls -l",
+    "echo 'Processos...'",
+    "ps aux",
 ]
 
 # Define o script como comando de inicialização
