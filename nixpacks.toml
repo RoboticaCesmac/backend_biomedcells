@@ -6,9 +6,15 @@ commands = [
 
 [phases.build]
 commands = [
+    "echo 'Construindo o projeto...'",
+]
+
+[start]
+commands = [
     "echo 'Ajustando permissões...'",
     "echo 'Caminho do diretório database: /app/app/database'",
-    "ls -l /app/app",  # Verifique o conteúdo do diretório /app/app
+    "ls -l /app/app",  # Comando de depuração para verificar o conteúdo do diretório /app/app
+    "ls -l /app/app/database",  # Comando de depuração para verificar o conteúdo do diretório /app/app/database
     "chown -R nobody:nobody /app/app/database",
     "chmod -R 750 /app/app/database",
 ]
