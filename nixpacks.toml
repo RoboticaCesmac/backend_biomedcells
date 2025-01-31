@@ -9,15 +9,9 @@ commands = [
     "echo 'Construindo o projeto...'",
 ]
 
+# Define o script como comando de inicialização
 [start]
-commands = [
-    "echo 'Ajustando permissões...'",
-    "echo 'Caminho do diretório database: /app/app/database'",
-    "ls -l /app/app",  # Comando de depuração para verificar o conteúdo do diretório /app/app
-    "ls -l /app/app/database",  # Comando de depuração para verificar o conteúdo do diretório /app/app/database
-    "chown -R nobody:nobody /app/app/database",
-    "chmod -R 750 /app/app/database",
-]
+cmd = "/app/start.sh"
 
 # Manualmente é isso que é feito:
 # "ps aux" dentro do container para saber qual o usuário dono do processo php-fpm.
