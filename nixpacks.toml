@@ -1,13 +1,8 @@
-[phases.build]
-commands = [
-    "echo 'Copiando php-fpm.conf...'",
-    "cp /nix/store/*-php-*/etc/php-fpm.conf.default /app/php-fpm.conf",
-    "chmod +x /app/start.sh"
+[hooks]
+postDeploy = [
+  "chown -R nobody:nobody /app/database",
+  "chmod -R 750 /app/app/database"
 ]
-
-# Define o script start.sh para ajustar permissões do banco
-[start]
-cmd = "sh /app/start.sh"
 
 # Manualmente é isso que é feito:
 # Entra no container com "sudo docker exec -it id-container sh" onde o id-container pode encontrado com o comando "sudo docker ps"
