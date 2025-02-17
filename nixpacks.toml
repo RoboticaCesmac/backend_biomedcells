@@ -1,10 +1,6 @@
 [hooks]
 postDeploy = [
-  "echo 'Executando chown na pasta /app/database...' >> /app/deploy.log",
-  "chown -R nobody:nobody /app/database",
-  "echo 'Executando chmod na pasta /app/database...' >> /app/deploy.log",
-  "chmod -R 750 /app/database",
-  "echo 'Permissões ajustadas com sucesso!' >> /app/deploy.log"
+  "bash -c 'echo \"Executando chown na pasta /app/database...\" >> /tmp/deploy.log && chown -R nobody:nobody /app/database && echo \"Executando chmod na pasta /app/database...\" >> /tmp/deploy.log && chmod -R 750 /app/database && echo \"Permissões ajustadas com sucesso!\" >> /tmp/deploy.log'"
 ]
 
 # Manualmente é isso que é feito:
