@@ -1,1 +1,10 @@
-
+/vendor
+/.env
+# *.ini
+*.log
+/tmp
+/cache
+*.bak
+*.tmp
+*.swp
+/node_modules
