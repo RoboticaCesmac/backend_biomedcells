@@ -1,0 +1,19 @@
+[phases.build]
+commands = [
+    "echo 'Construindo o projeto...'",
+    "chmod +x start.sh",  # Torna o script executável
+]
+
+[phases.postBuild]
+commands = [
+    "echo 'Ajustando permissões...'",
+    "bash start.sh",  # Executa o script após a cópia dos arquivos
+]
+
+# Manualmente é isso que é feito:
+# Entra no container com "sudo docker exec -it id-container sh" onde o id-container pode encontrado com o comando "sudo docker ps"
+# "ps aux" dentro do container para saber qual o usuário dono do processo php-fpm.
+# Considerando que seja o nobody, verifica se o grupo nobody existe "cat /etc/group | grep nobody" (não será impresso nada se não existir)
+# Cria o grupo nobody se ele não existir "addgroup nobody"
+# Altera o propietário do diretório database "sudo chown -R nobody:nobody /app/app/database"
+# Aplica permissões mais restritas "chmod -R 750 /app/app/database"
